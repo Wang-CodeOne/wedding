@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="Author" content="">
+<meta content=" " name="">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/css_whir.css"/>
+<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+<!--[if lt IE 9]>
+  <script type="text/javascript" src="scripts/html5shiv.v3.72.min.js"></script>
+<![endif]--><script type="text/javascript" src="Scripts/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript">
+   var navID = "6";
+</script>
+</head>
+
+<body>
+<!--top-->
+<header class="Toper">
+	<div class="Top" >
+    	<section class="topBox" >
+        	<span class="ico_xinlang" >
+            	<img src="images/ico_xinlang.jpg" width="36" height="36" />
+                <span class="Text" >收听</span>
+            </span>
+            <div class="WeixinBox" ><img src="images/ico_wexin.jpg" width="36" height="36" />
+            	 <div class="Weixin" ><img src="uploadfiles/image/weixin.png" width="100" height="100" /></div>
+            </div>
+            <span class="KFBox" >4001-520-570</span>
+            <div class="clear"></div>
+       </section>
+        <div class="logo" ><a href="index.html" ><img src="images/logo.jpg" width="293px" height="47" /></a></div>
+        <div class="clear" ></div>
+       <nav class="MainNav">
+          <ul>
+             <li id="nav1" ><a href="index.html">首页<span>Home</span></a></li>
+             <li id="nav2" ><a href="婚姻场地.html">婚宴场地<span>Banquet</span></a></li>
+             <li id="nav3" ><a href="仪式殿堂.html">仪式殿堂<span>Chapel</span></a></li>
+             <li id="nav4" ><a href="套系价格.html">套系价格<span>Package</span></a></li>
+             <li id="nav5" ><a href="幸福御守团.html">幸福御守团<span>Wedding</span></a></li>
+             <li id="nav6" ><a href="商务外烩.html">商务外烩<span>Catering</span></a></li>
+             <li id="nav7" ><a href="幸福绝配.html">幸福绝配<span>Events</span></a></li>
+             <li id="nav8" ><a href="最新活动.html">最新活动<span>News</span></a></li>
+             <li id="nav9" ><a href="婚礼实录.html">婚礼实录<span>Case</span></a></li>
+             <li id="nav10" ><a href="预约看馆.html">预约看馆<span>Resort</span></a></li>
+             <div class="clear"></div>
+          </ul>
+       </nav>
+   </div>
+</header>
+<script type="text/javascript">
+   //导航选中
+    $("#nav" + navID).addClass("onnav");
+	$(".MainNav li:first").css("padding-left","0");
+	$(".MainNav li:last").css("padding-right","0");
+
+	$(".Top .WeixinBox").hover(
+		function(){  $(".Top .Weixin").show();},
+		function(){  $(".Top .Weixin").hide();}
+	)
+	$(".Top .ico_xinlang").hover(
+		function(){  $(".ico_xinlang .Text").show();},
+		function(){  $(".ico_xinlang .Text").hide();}
+	)
+</script>
+<!--top End-->
+<aside class="Banner" style=" background:url(uploadfiles/image/Banner/%E4%BB%AA%E5%BC%8F%E6%AE%BF%E5%A0%82Banner.jpg) no-repeat center top;"></aside>
+<section class="Contain">
+     <div class="MainContain">
+         <div class="ColumnName"><span>商务外烩</span><em>Business Catering</em></div>
+         <div class="Content">
+             <article class="SinglePage">
+                   商务外烩
+             </article>
+         </div>
+     </div>
+</section>
+<script type="text/javascript">
+    $(window).load(function () {
+        $(".NewsList li").each(function () {
+            //设置和获取一些变量
+            var thumbnail = {
+                imgIncrease: 30, /* 增加图像像素（变焦） */
+                effectDuration: 400, /* 效果的持续时间（变焦和标题） */
+                imgWidth: $(this).find('img').width(),
+                imgHeight: $(this).find('img').height()
+            };
+            $(this).css({
+              //  'width': thumbnail.imgWidth,
+//                'height': thumbnail.imgHeight
+            });
+            $(this).hover(function () {
+                $(this).find('img').stop().animate({
+                    /* 变焦效果，提高图像的宽度 */
+                    width: parseInt(thumbnail.imgWidth) + thumbnail.imgIncrease,
+                    height: parseInt(thumbnail.imgHeight) + thumbnail.imgIncrease,
+                    /* 我们需要改变的左侧和顶部的位置，才能有放大效应，因此我们将它们移动到一个负占据一半的img增加 */
+                    left: thumbnail.imgIncrease / 2 * (-1),
+                    top: thumbnail.imgIncrease / 2 * (-1)
+
+                }, {
+                    "duration": thumbnail.effectDuration,
+                    "queue": false
+                });
+                //当鼠标离开...
+            }, function () {
+                $(this).find('img').animate({
+                    width: thumbnail.imgWidth,
+                    height: thumbnail.imgHeight,
+                    left: 0,
+                    top: 0
+                }, thumbnail.effectDuration);
+            });
+        });
+    });
+</script>
+<!--bottom-->
+<footer class="Bottomer">
+<div class="Bottom">
+	<nav class="BotNav" >
+    	<ul>
+        	<li><a href="#" class="botnav1" >在线咨询</a></li>
+            <li><a href="#" class="botnav2" >预约看店</a></li>
+            <li><a href="#" class="botnav3" >查询档期</a></li>
+           
+            <li><a href="最新活动.html" class="botnav5" >发送地址</a></li>
+            <li><a href="#" class="botnav6 ReturnTop" >返回顶部</a></li>
+            <div class="clear" ></div>
+        </ul>
+    </nav>
+
+  	<div class="botBox" >
+    	<div class="left" >
+        	<div class="PhoneBox" >
+                <div class="WeixinBox" ><img src="images/ico_wexin_2.jpg" width="36" height="36" />
+                     <div class="Weixin" ><img src="uploadfiles/image/weixin.png" width="100" height="100" /></div>
+                </div>
+                <span class="ico_xinlang" >
+                	<img src="images/ico_xinlang_2.jpg" width="36" height="36" />
+                	<span class="Text" >收听</span>
+                </span>
+                <span class="phone" >4001-520-570</span>
+            </div>
+            <p class="adress" >联系地址：上海市闸北区高平路88号，雅悦新天地</p>
+            <div class="Copyright">Copyright © 2015  All Rights Reserved .  ed by <a target="_blank" href="http://" ></a></div>
+        </div>
+        <div class="right" >
+        	<figure class="icoMap" ><img src="images/ico_map.jpg" width="240" height="201" /></figure>
+            <div class="BigMapBox" >
+            	<img src="uploadfiles/image/BG_map.png" width="536" height="460" />
+            </div>
+        </div>
+        <div class="clear" ></div>
+    </div>
+   
+</div>
+</footer>
+<!--右边悬浮框-->
+<div class="FloatBox" id="FloatBox" >
+	<nav class="float" >
+    	<ul>
+        	<li><a href="#" class="botnav1" >在线咨询</a></li>
+            <li><a href="javascript:void(0);" class="botnav2" >预约看店</a></li>
+            <li><a href="javascript:void(0);" class="botnav3" >查询档期</a></li>
+            <li><a href="#" class="botnav4" >发送地址</a></li>
+            <li><a href="#" class="botnav5 ReturnTop" >返回顶部</a></li>
+            <div class="clear" ></div>
+        </ul>
+    </nav>
+</div>
+
+<div class="Curtain" style=" display:none;">
+     <div class="CKYYbox" style="display:none;">
+         <span>预约看店</span>
+         <table>
+              <tr><td><input type="text" class="text" value="姓名"/></td></tr>
+              <tr><td><input type="text" class="text" value="手机号" /></td></tr>
+              <tr><td><input type="button" class="btn" value="提 交" /></td></tr>
+         </table>
+         <a href="javascript:void(0);" class="close"></a>
+     </div>
+     <div class="CKDQbox" style="display:none;">
+         <span>查询档期</span>
+         <table>
+              <tr><td>
+                  <div class="SelectBox SelectBox_Up">
+                   <span class="SelectText">请选择</span>
+                   <dl class="SelectList">
+                      <dt><a href="javascript:void(0)">香港</a></dt>
+                      <dt><a href="javascript:void(0)">北京</a></dt>
+                      <dt><a href="javascript:void(0)">广州</a></dt>
+                      <dt><a href="javascript:void(0)">上海</a></dt>
+                      <dt><a href="javascript:void(0)">杭州</a></dt>
+                      <dt><a href="javascript:void(0)">长沙</a></dt>
+                   </dl>
+                </div>
+              </td></tr>
+              <tr><td><input type="text" class="text" value=""/></td></tr>
+              <tr><td><input type="text" class="text" value="姓名"/></td></tr>
+              <tr><td><input type="text" class="text" value="手机号" /></td></tr>
+              <tr><td><input type="button" class="btn" value="提 交" /></td></tr>
+         </table>
+         <a href="javascript:void(0);" class="close"></a>
+     </div>
+</div>
+
+<script type="text/javascript">
+   $(".SelectBox").each(function(){    //同一个页面允许多次使用                      
+	        $(this).find(".SelectText").click(function(){  //点击展开下拉菜单
+			  var SelectListStatis = $(this).next(".SelectList").css("display");
+			  if(SelectListStatis == "none"){    //判断下拉菜单是否展开
+					$(this).next(".SelectList").show();
+			   }
+			   else{   
+					   $(this).next(".SelectList").hide();
+			  }
+	   });
+	//下拉菜单选项点击事件
+		   $(this).find(".SelectList").children("dt").click(function(){
+			var Value = $(this).find("a").text();  //点击获取值
+			  //赋值
+	       $(this).parents(".SelectList").prev(".SelectText").text(Value)          
+	       $(this).parents(".SelectList").hide();
+	       $(this).mouseleave(function(){ $(this).find(".SelectList").hide(); });
+	   });
+   });
+
+   $(".FloatBox .float li").find(".botnav2").click(function(){
+	 var cwidth=$(document).width();
+	 var aheight=$(document).height();
+	 //alert(cwidth);
+	 $(".Curtain").css({"width":cwidth,"height":aheight,"display":"block"});  
+	 $(".Curtain").find(".CKYYbox").show();
+	 $(".Curtain").find(".CKDQbox").hide();
+	 var ahg=$(".Curtain").find(".CKYYbox").height();
+	 var bhg=$(window).height();
+	 var chg=(bhg-ahg)/2;
+	 $(".Curtain").find(".CKYYbox").css("top",chg);
+});
+
+$(".FloatBox .float li").find(".botnav3").click(function(){
+	 var cwidth=$(document).width();
+	 var aheight=$(document).height();
+	 //alert(cwidth);
+	 $(".Curtain").css({"width":cwidth,"height":aheight,"display":"block"});  
+	 $(".Curtain").find(".CKDQbox").show();
+	 var ahg=$(".Curtain").find(".CKDQbox").height();
+	 $(".Curtain").find(".CKYYbox").hide();
+	 var bhg=$(window).height();
+	 var chg=(bhg-ahg)/2;
+	 $(".Curtain").find(".CKDQbox").css("top",chg);
+});
+
+$(".Curtain").find("a.close").click(function(){
+  //$(".Curtain").css("display","none");	
+  $(".Curtain").css("display","none");	
+});
+</script>
+
+<script type="text/javascript" src="scripts/float.js"></script>
+<!--右边悬浮框-->
+
+<script type="text/javascript">
+//BotNav去padding
+$(".BotNav li:last").css("padding-right","0");
+
+//返回顶部
+ $(".ReturnTop").click(function(){  
+	$('body,html').animate({scrollTop:0},1000);  
+	return false;  
+});  
+//地图
+$(".icoMap").hover(
+	function(){ $(".BigMapBox").show();},
+	function(){ $(".BigMapBox").hide();}
+)
+$(".BigMapBox").hover(
+	function(){ $(".BigMapBox").show();},
+	function(){ $(".BigMapBox").hide();}
+)
+
+$(".Bottom .WeixinBox").hover(
+		function(){  $(".Bottom .Weixin").show();},
+		function(){  $(".Bottom .Weixin").hide();}
+	)
+$(".Bottom .ico_xinlang").hover(
+		function(){  $(".ico_xinlang .Text").show();},
+		function(){  $(".ico_xinlang .Text").hide();}
+	)
+</script>
+<script type="text/javascript">
+//整站无图处理
+jQuery.each(jQuery("img"), function (i, n) { jQuery(n).error(function () { n.src = 'images/nofile.jpg'; }); n.src = n.src; });
+</script><!--bottom End-->
+</body>
+</html>
