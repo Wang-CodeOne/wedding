@@ -11,7 +11,7 @@
 <script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
 <!--[if lt IE 9]>
   <script type="text/javascript" src="scripts/html5shiv.v3.72.min.js"></script>
-<![endif]--><script type="text/javascript" src="Scripts/jquery.SuperSlide.2.1.1.js"></script>
+<![endif]--><script type="text/javascript" src="scripts/jquery.SuperSlide.2.1.1.js"></script>
 <script type="text/javascript">
    var navID = "1";
 </script>
@@ -24,7 +24,7 @@
     	<section class="topBox" >
         	<span class="ico_xinlang" >
             	<img src="images/ico_xinlang.jpg" width="36" height="36" />
-                <span class="Text" >收听</span>
+                <span class="Text" ><img src="uploadfiles/image/weixin.png" width="100" height="100"/></span>
             </span>
             <div class="WeixinBox" ><img src="images/ico_wexin.jpg" width="36" height="36" />
             	 <div class="Weixin" ><img src="uploadfiles/image/weixin.png" width="100" height="100" /></div>
@@ -72,9 +72,9 @@
    <div class="BanList">
       <ul>
          <li style="background:url(uploadfiles/Banner/Ban_2.jpg) no-repeat center top;"></li>
-         <li style="background:url(uploadfiles/Banner/Ban_2.jpg) no-repeat center top;"></li>
-         <li style="background:url(uploadfiles/Banner/Ban_2.jpg) no-repeat center top;"></li>
-         <li style="background:url(uploadfiles/Banner/Ban_2.jpg) no-repeat center top;"></li>
+         <li style="background:url(uploadfiles/Banner/Ban_1.jpg) no-repeat center top;"></li>
+         <li style="background:url(uploadfiles/Banner/Ban_3.jpg) no-repeat center top;"></li>
+         <li style="background:url(uploadfiles/Banner/Ban_4.jpg) no-repeat center top;"></li>
       </ul>
    </div>
    <div class="TabList">
@@ -386,12 +386,13 @@
 	<nav class="BotNav" >
     	<ul>
         	<li><a href="tencent://message/?uin=1092065219&Site=&Menu-=yes" class="botnav1">在线咨询</a></li>
-            <li><a href="#" class="botnav2" >预约看店</a></li>
+            <li><a href="javascript:void(0);" class="botnav2" >预约看店</a></li>
             <li><a href="#" class="botnav3" >查询档期</a></li>
            
-            <li><a href="最新活动.html" class="botnav5" >发送地址</a></li>
+            <li><a href="liulanqidingwei.html" class="botnav5" >发送地址</a></li>
             <li><a href="#" class="botnav6 ReturnTop" >返回顶部</a></li>
             <div class="clear" ></div>
+
         </ul>
     </nav>
 
@@ -403,7 +404,7 @@
                 </div>
                 <span class="ico_xinlang" >
                 	<img src="images/ico_xinlang_2.jpg" width="36" height="36" />
-                	<span class="Text" >收听</span>
+                	<span class="Text" ><img src="uploadfiles/image/weixin.png" width="100" height="100"/></span>
                 </span>
                 <span class="phone" >4001-520-570</span>
             </div>
@@ -429,7 +430,7 @@
            <li><a href="tencent://message/?uin=1092065219&Site=&Menu-=yes" class="botnav1">在线咨询</a></li>
             <li><a href="javascript:void(0);" class="botnav2" >预约看店</a></li>
             <li><a href="javascript:void(0);" class="botnav3" >查询档期</a></li>
-            <li><a href="#" class="botnav4" >发送地址</a></li>
+            <li><a href="liulanqidingwei.html" class="botnav4" >发送地址</a></li>
             <li><a href="#" class="botnav5 ReturnTop" >返回顶部</a></li>
             <div class="clear" ></div>
         </ul>
@@ -439,11 +440,13 @@
 <div class="Curtain" style=" display:none;">
      <div class="CKYYbox" style="display:none;">
          <span>预约看店</span>
-         <table>
-              <tr><td><input type="text" class="text" value="姓名"/></td></tr>
-              <tr><td><input type="text" class="text" value="手机号" /></td></tr>
+
+         <table id="tab111">
+              <tr><td><input type="text" id="in1" class="text" name="username" placeholder="姓名"/></td></tr>
+              <tr><td><input type="text" id="in2" class="text" name="phone" placeholder="手机号" /></td></tr>
               <tr><td><input type="button" class="btn" value="提 交" /></td></tr>
          </table>
+
          <a href="javascript:void(0);" class="close"></a>
      </div>
      <div class="CKDQbox" style="display:none;">
@@ -462,7 +465,7 @@
                    </dl>
                 </div>
               </td></tr>
-              <tr><td><input type="text" class="text" value=""/></td></tr>
+              <tr><td><input type="text" class="text" value="日期"/></td></tr>
               <tr><td><input type="text" class="text" value="姓名"/></td></tr>
               <tr><td><input type="text" class="text" value="手机号" /></td></tr>
               <tr><td><input type="button" class="btn" value="提 交" /></td></tr>
@@ -559,5 +562,60 @@ $(".Bottom .ico_xinlang").hover(
 //整站无图处理
 jQuery.each(jQuery("img"), function (i, n) { jQuery(n).error(function () { n.src = 'images/nofile.jpg'; }); n.src = n.src; });
 </script><!--bottom End-->
+    <script type="text/javascript">
+      $(".btn").click(function() {
+
+          /* var tb=document.getElementById("tab111");    //获取table对像
+            alert(tb.innerHTML.valueOf());*/
+
+          /* var rows=tb.rows;
+           alert("rows:"+rows.innerHTML);
+           for(var i=0;i<rows.length;i++){    //--循环所有的行
+               var cells=rows[i].cells;
+               alert("cells:"+cells.innerHTML)
+               for(var j=1;j<cells.length;j++){   //--循环所有的列
+                   alert(cells[j].innerHTML);
+
+               }
+           }*/
+            /*$.get("insertUser",{"username":username,"phone":phone},function (data) {
+                if(data.code==1){
+                    alert("登录成功");
+                }
+            })*/
+
+            //var i = $("input").text();
+            //  i = $("table tr td").text(i1);
+
+          var username = document.getElementById("in1").value;
+          var phone = document.getElementById("in2").value;
+
+
+          /*  alert("姓名："+username);
+            alert("手机号："+phone);*/
+            $.ajax({
+               type:"get",
+               url:"../insertUser?username="+username+"&phone="+phone,
+               data:$("#tab").serialize(),
+               dataType:"json",
+               success:function (data) {
+                   if (data.code==1){
+                       alert("已预约成功！");
+                       window.location.href="index.html";
+                   } else if(data.code==0){
+                       alert("预约失败！");
+                       window.location.href="index.html";
+                   }else if(data.code==-1){
+                       alert("你已预约成功，请不要重复预约！！")
+                       window.location.href="index.html";
+                   }else{
+                       alert("预约失败！");
+                       window.location.href="index.html";
+                   }
+
+               }
+            });
+        })
+    </script>
 </body>
 </html>
