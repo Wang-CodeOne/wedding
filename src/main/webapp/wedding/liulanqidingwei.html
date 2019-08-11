@@ -18,6 +18,7 @@
 <form action="#" method="post" onsubmit="return false;" id="for">
     <div class="longitude"></div>
     <div class="latitude"></div>
+    <div class="location"></div>
     <input type="submit" value="发送位置信息" id="su"/>
 
 </form>
@@ -31,20 +32,39 @@
 
     var geolocation = new BMap.Geolocation();
     geolocation.getCurrentPosition(function(r){
+
         if(this.getStatus() == BMAP_STATUS_SUCCESS){
             map.addEventListener("tilesloaded",function(){alert("地图加载完毕");});
             var mk = new BMap.Marker(r.point);
             map.addOverlay(mk);
             map.panTo(r.point);
             //alert('您的位置：'+r.point.lng+','+r.point.lat);
+            //获取具体的地址
+            var geoc = new BMap.Geocoder();
+            var pt = r.point;
 
             var html="";
             html +='<input id="longitude" name="longitude" type=\"text\" hidden="hidden" value= \"'+r.point.lng +'\"/>';
 
             var lat ="";
             lat +='<input id="latitude" name="latitude" type=\"text\" hidden="hidden" value= \"'+ r.point.lat+'\"/>';
+
+
+
             $(".longitude").append(html);
             $(".latitude").append(lat);
+
+            geoc.getLocation(pt, function(rs){
+                var  addComp = rs.addressComponents;
+              //  alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+                alert("你目前所在的位置："+ addComp.province +"," + addComp.city+","+addComp.district);
+                var location ="";
+                location +='<input id="location" name="location" type=\"text\" hidden="hidden" value= \"'+  addComp.city + '\"/>';
+                $(".location").append(location);
+            });
+          //  alert(addComp.province + ", " + addComp.city + ", " + addComp.district);
+
+
 
         }
         else {
@@ -83,7 +103,9 @@
                     alert("位置信息发送成功！！！");
                     window.location.href="index.html";
                 } else {
-                    alert("发送信息失败,请重新返送位置信息！！！");
+                    alert("位置信息已发送成功，请不要重复发送！！！");
+
+                    window.location.href="index.html";
                 }
 
             }

@@ -16,9 +16,10 @@ public class addressServiceImpl implements addressService {
         Integer id = add.getId();
         String log = add.getLog();
         String lat = add.getLat();
+        String location = add.getLocation();
         Address address = addressMapper.selectByPrimaryKey(id);
         if(address != null){
-            if(log !=address.getLog() || lat !=address.getLat() ){
+            if(log !=address.getLog() || lat !=address.getLat()||location !=address.getLocation() ){
                 //进行更新操作
                 addressMapper.updateByPrimaryKey(add);
 
@@ -28,5 +29,21 @@ public class addressServiceImpl implements addressService {
         //进行插入操作
         addressMapper.insert(add);
         return 1;
+    }
+
+    @Override
+    public boolean selectByJW(Address address) {
+        int i = addressMapper.selectByJW(address);
+        if(i>0){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String selectByAid(Address address) {
+
+        return addressMapper.selectByAid(address);
+
     }
 }

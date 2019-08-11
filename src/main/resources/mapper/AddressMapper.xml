@@ -5,9 +5,10 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="log" jdbcType="BIGINT" property="log" />
     <result column="lat" jdbcType="BIGINT" property="lat" />
+    <result column="location" jdbcType="BIGINT" property="location" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, log, lat
+    id, log, lat,location
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -15,13 +16,25 @@
     from address
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByJW" parameterType="com.xcy.wedding.pojo.Address" resultType="int">
+    select
+   count(1)
+   from address
+    where log=#{log} and lat = #{lat}
+  </select>
+  <select id="selectByAid" parameterType="com.xcy.wedding.pojo.Address"  resultType="string">
+          select
+         u.username
+          from address a,user u
+          where a.id=u.aid and a.id=#{id}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from address
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.xcy.wedding.pojo.Address">
-    insert into address (id, log, lat)
-    values (#{id,jdbcType=INTEGER}, #{log,jdbcType=BIGINT}, #{lat,jdbcType=BIGINT})
+    insert into address (id, log, lat, location)
+    values (#{id,jdbcType=INTEGER}, #{log,jdbcType=BIGINT}, #{lat,jdbcType=BIGINT},#{location,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.xcy.wedding.pojo.Address">
     insert into address
@@ -35,6 +48,9 @@
       <if test="lat != null">
         lat,
       </if>
+      <if test="location != null">
+        location,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -44,7 +60,10 @@
         #{log,jdbcType=BIGINT},
       </if>
       <if test="lat != null">
-        #{lat,jdbcType=BIGINT},
+      #{lat,jdbcType=BIGINT},
+    </if>
+      <if test="location != null">
+        #{location,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -57,6 +76,10 @@
       <if test="lat != null">
         lat = #{lat,jdbcType=BIGINT},
       </if>
+      <if test="location != null">
+        location = #{location,jdbcType=BIGINT},
+      </if>
+
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -64,6 +87,7 @@
     update address
     set log = #{log,jdbcType=BIGINT},
       lat = #{lat,jdbcType=BIGINT}
+       location = #{location,jdbcType=BIGINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

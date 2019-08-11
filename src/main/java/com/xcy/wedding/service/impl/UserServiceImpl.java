@@ -2,9 +2,14 @@ package com.xcy.wedding.service.impl;
 
 import com.xcy.wedding.mapper.UserMapper;
 import com.xcy.wedding.pojo.User;
+import com.xcy.wedding.pojo.UserVo;
 import com.xcy.wedding.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,7 +28,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public int insertUser(User user) {
         String username = user.getUsername();
-      User user1 = userMapper.selecteByName(username);
+      User user1 = userMapper.selecteByName("a");
       if(user1 !=null) {
           String phone1 = user1.getPhone();
 
@@ -47,6 +52,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User selectByName(String name) {
         return null;
+    }
+
+    @Override
+    public List<UserVo> selectByAll(Map map) {
+        List<UserVo> userVos = userMapper.selectByAll(map);
+
+
+        return userVos;
     }
 
 

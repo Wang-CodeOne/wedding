@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xcy.wedding.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.xcy.wedding.pojo.User">
+  <resultMap id="BaseResultMap" type="com.xcy.wedding.pojo.UserVo">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="aid" jdbcType="INTEGER" property="aid" />
+
     <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
   </resultMap>
+
+<!--  <resultMap id="BaseResultMap1" type="com.xcy.wedding.pojo.UserVo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>-->
+
   <sql id="Base_Column_List">
     id, username, phone, aid, createtime
   </sql>
@@ -16,6 +27,12 @@
     <include refid="Base_Column_List" />
     from user
     where id = #{id,jdbcType=INTEGER}
+  </select>
+<select id="selectByAll" parameterType="Map" resultMap="BaseResultMap">
+    select u.id,u.username,u.createtime,a.location
+    from user u,address a
+    where u.aid = a.id
+   and u.createtime like #{createtime} and a.location like #{location}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user
